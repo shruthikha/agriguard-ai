@@ -22,7 +22,7 @@ async function predictImage(imagePath) {
       headers: {
         ...form.getHeaders()
       },
-      timeout: 15000
+      timeout: 45000
     });
 
     return response.data;
@@ -42,7 +42,7 @@ async function predictImage(imagePath) {
  */
 async function checkMLHealth() {
   try {
-    const response = await axios.get(`${ML_SERVICE_URL}/health`, { timeout: 3000 });
+    const response = await axios.get(`${ML_SERVICE_URL}/health`, { timeout: 15000 });
     return response.data;
   } catch (error) {
     return { status: 'down', error: error.message };
