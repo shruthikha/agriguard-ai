@@ -142,19 +142,21 @@ app.use((err, req, res, next) => {
   });
 });
 
-// MongoDB Connection & Server Startup
+// Server Startup & MongoDB Connection
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/agriguard';
 
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🌾 AgriGuard AI Backend running on port ${PORT}`);
+    console.log(`🔗 API Base: http://0.0.0.0:${PORT}/api`);
+  });
+}
+
+console.log(`📡 Connecting to MongoDB... (${MONGO_URI.includes('mongodb+srv') ? 'MongoDB Atlas' : 'Local MongoDB'})`);
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('✅ Connected to MongoDB successfully.');
-    if (process.env.NODE_ENV !== 'test') {
-      app.listen(PORT, () => {
-        console.log(`🌾 AgriGuard AI Backend running on port ${PORT}`);
-        console.log(`🔗 API Base: http://localhost:${PORT}/api`);
-      });
-    }
   })
   .catch((err) => {
     console.error('❌ MongoDB Connection Error:', err.message);
