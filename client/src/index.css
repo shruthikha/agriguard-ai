@@ -1,0 +1,381 @@
+/* Import Inter + DM Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   BASE LAYER — Global resets and typography
+   ============================================= */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    font-feature-settings: "kern" 1, "liga" 1, "cv11" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply min-h-screen text-forest-600;
+    background-color: #EAF4E4;
+    font-family: 'Inter', 'DM Sans', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-forest-600;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    color: #4A5E52;
+  }
+
+  /* Accessible minimum touch target */
+  button, a {
+    @apply min-h-[44px];
+  }
+  input, select, textarea {
+    @apply min-h-[44px];
+  }
+}
+
+/* =============================================
+   COMPONENTS LAYER — Reusable design system
+   ============================================= */
+@layer components {
+
+  /* --- PAGE CONTAINER --- */
+  .page-container {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8;
+  }
+  .page-container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8;
+  }
+
+  /* --- CARDS --- */
+  .card {
+    background: #FFFFFF;
+    border: 1px solid #C9DEC1;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(70, 95, 75, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(70, 95, 75, 0.10);
+  }
+  .card-soft {
+    background: #F4F8EF;
+    border: 1px solid #C9DEC1;
+    border-radius: 16px;
+  }
+  .card-cream {
+    background: #F8F4E8;
+    border: 1px solid #E8DABC;
+    border-radius: 16px;
+  }
+
+  /* --- BUTTONS --- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold transition-all select-none;
+    border-radius: 12px;
+    min-height: 44px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .btn-primary {
+    @apply btn text-white;
+    background: #527A5A;
+    box-shadow: 0 2px 12px rgba(82, 122, 90, 0.25);
+  }
+  .btn-primary:hover {
+    background: #3F6246;
+    box-shadow: 0 4px 16px rgba(82, 122, 90, 0.30);
+  }
+  .btn-secondary {
+    @apply btn text-forest-600;
+    background: #FFFFFF;
+    border: 1.5px solid #C9DEC1;
+  }
+  .btn-secondary:hover {
+    background: #EAF4E4;
+    border-color: #527A5A;
+  }
+  .btn-ghost {
+    @apply btn text-forest-600;
+    background: transparent;
+  }
+  .btn-ghost:hover {
+    background: #EAF4E4;
+  }
+  .btn-danger {
+    @apply btn;
+    background: #C98282;
+    color: #FFFFFF;
+  }
+  .btn-danger:hover {
+    background: #B86A6A;
+  }
+  .btn-lg {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+  .btn-sm {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8rem;
+    min-height: 36px;
+    border-radius: 10px;
+  }
+
+  /* --- FORM INPUTS --- */
+  .input {
+    @apply w-full transition-all outline-none;
+    background: #F4F8EF;
+    border: 1.5px solid #C9DEC1;
+    border-radius: 12px;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
+    color: #294333;
+    min-height: 44px;
+  }
+  .input:focus {
+    border-color: #527A5A;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(82, 122, 90, 0.15);
+  }
+  .input::placeholder {
+    color: #899B6A;
+    opacity: 0.8;
+  }
+
+  /* --- LABELS --- */
+  .label {
+    @apply block text-sm font-semibold mb-1.5;
+    color: #294333;
+  }
+
+  /* --- SECTIONS --- */
+  .section-title {
+    @apply text-lg font-semibold mb-4;
+    color: #294333;
+  }
+
+  /* --- STATUS BADGES --- */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold;
+  }
+  .badge-healthy {
+    background: #DDEBDD;
+    color: #2E4D35;
+    border: 1px solid #C9DEC1;
+  }
+  .badge-disease {
+    background: #FAEEED;
+    color: #5A2C2C;
+    border: 1px solid #E5B3B0;
+  }
+  .badge-warning {
+    background: #FDF8EC;
+    color: #4E3D18;
+    border: 1px solid #F3DFA0;
+  }
+  .badge-neutral {
+    background: #F4F8EF;
+    color: #527A5A;
+    border: 1px solid #C9DEC1;
+  }
+
+  /* --- NAVIGATION PILL --- */
+  .nav-link {
+    @apply flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium transition-all;
+    color: #4A5E52;
+  }
+  .nav-link:hover {
+    background: #EAF4E4;
+    color: #294333;
+  }
+  .nav-link.active {
+    background: #EAF4E4;
+    color: #294333;
+    font-weight: 600;
+    border: 1px solid #C9DEC1;
+  }
+
+  /* --- STAT CARD --- */
+  .stat-card {
+    @apply card p-5 space-y-1;
+  }
+  .stat-value {
+    @apply text-3xl font-bold;
+    color: #294333;
+  }
+  .stat-label {
+    @apply text-xs font-medium;
+    color: #6B7D70;
+  }
+
+  /* --- INFO ALERT --- */
+  .alert {
+    @apply flex items-start gap-3 p-4 rounded-2xl text-sm;
+  }
+  .alert-info {
+    background: #EAF4E4;
+    border: 1px solid #C9DEC1;
+    color: #294333;
+  }
+  .alert-warning {
+    background: #FDF8EC;
+    border: 1px solid #F3DFA0;
+    color: #4E3D18;
+  }
+  .alert-danger {
+    background: #FAEEED;
+    border: 1px solid #E5B3B0;
+    color: #5A2C2C;
+  }
+
+  /* --- DIVIDER --- */
+  .divider {
+    @apply w-full border-0 my-4;
+    border-top: 1px solid #C9DEC1;
+  }
+}
+
+/* =============================================
+   UTILITIES LAYER — Custom animations/helpers
+   ============================================= */
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.25s ease-out;
+  }
+  .animate-slideUp {
+    animation: slideUp 0.3s ease-out;
+  }
+  .animate-pulseSoft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  .text-body {
+    color: #4A5E52;
+  }
+  .text-muted {
+    color: #6B7D70;
+  }
+  .text-heading {
+    color: #294333;
+  }
+
+  .bg-page {
+    background-color: #EAF4E4;
+  }
+  .bg-surface {
+    background-color: #F4F8EF;
+  }
+  .bg-card {
+    background-color: #FFFFFF;
+  }
+  .bg-cream {
+    background-color: #F8F4E8;
+  }
+
+  .border-sage {
+    border-color: #C9DEC1;
+  }
+  .ring-sage {
+    --tw-ring-color: rgba(82, 122, 90, 0.2);
+  }
+}
+
+/* =============================================
+   KEYFRAMES
+   ============================================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 0.75; }
+  50%       { opacity: 1; }
+}
+
+@keyframes leafSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes scanMove {
+  0%   { top: 0%;  opacity: 0.7; }
+  50%  { opacity: 1; }
+  100% { top: 96%; opacity: 0.7; }
+}
+
+@keyframes voicePulse {
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(82,122,90,0.5); }
+  70%  { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(82,122,90,0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(82,122,90,0); }
+}
+
+/* Scan animation (for detect page) */
+.animate-scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #527A5A, #90BA8A, transparent);
+  box-shadow: 0 0 10px rgba(82,122,90,0.5);
+  animation: scanMove 2s ease-in-out infinite alternate;
+}
+
+.animate-voice-pulse {
+  animation: voicePulse 1.5s infinite;
+}
+
+.animate-leaf-spin {
+  animation: leafSpin 1.2s linear infinite;
+}
+
+/* =============================================
+   SCROLLBAR — subtle sage tint
+   ============================================= */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: #EAF4E4; }
+::-webkit-scrollbar-thumb  { background: #C9DEC1; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #899B6A; }
+
+/* =============================================
+   SAFE AREA (iOS notch)
+   ============================================= */
+.safe-area-pb {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+
+/* =============================================
+   GLASS PANEL utility
+   ============================================= */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(201, 222, 193, 0.6);
+}
+
+.glass-sage {
+  background: rgba(234, 244, 228, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 222, 193, 0.5);
+}
