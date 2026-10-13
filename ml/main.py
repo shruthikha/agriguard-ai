@@ -36,7 +36,17 @@ async def startup_event():
     except Exception as e:
         print(f"⚠️ Warning loading model: {e}")
 
+@app.get("/")
+async def root():
+    return {
+        "service": "AgriGuard AI ML Engine",
+        "status": "online",
+        "health": "/health",
+        "docs": "/docs"
+    }
+
 @app.get("/health")
+@app.get("/api/health")
 async def health_check():
     try:
         _, class_names = get_model_and_classes()

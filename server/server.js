@@ -58,8 +58,18 @@ const predictLimiter = rateLimit({
   legacyHeaders: false
 });
 
-// Services Health Check
+// Root & Services Health Check
 const { checkMLHealth } = require('./services/mlService');
+
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    service: 'AgriGuard AI Node.js Backend API',
+    health: '/api/health'
+  });
+});
+
+app.get('/health', (req, res) => res.redirect('/api/health'));
 
 app.get('/api/health', async (req, res) => {
   const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
