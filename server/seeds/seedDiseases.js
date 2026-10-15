@@ -457,7 +457,7 @@ const DISEASES_DATA = [
     ],
     treatment: [
       'Prune and discard infected bottom leaves up to 30cm from the ground',
-      'Stake or trellis tomato plants to elevate foliage off moist soil',
+      'Stake or trellis plants to elevate foliage off moist soil',
       'Apply organic mulch (straw or plastic) around the plant base'
     ],
     organicTreatment: [
@@ -797,6 +797,1111 @@ const DISEASES_DATA = [
       bn: 'স্বাস্থ্যকর টমেটো'
     }
   }
+,
+{
+  "crop": "Corn",
+  "diseaseName": "Common Rust",
+  "scientificName": "Puccinia sorghi",
+  "classId": "Corn_(maize)___Common_rust_",
+  "isHealthy": false,
+  "severity": "High",
+  "symptoms": [
+    "Small, powdery cinnamon-brown to golden-brown pustules on both upper and lower leaf surfaces",
+    "Pustules rupture epidermal leaf tissue, releasing rust-colored fungal urediniospores",
+    "Severe chlorosis, leaf blighting, and premature senescence in susceptible maize hybrids"
+  ],
+  "causes": [
+    "Puccinia sorghi fungal spores carried over long distances on high altitude southern winds",
+    "Prolonged cool to moderate temperatures (16°C to 25°C) and high relative humidity (>95%)",
+    "Heavy morning dew and fog lasting 6+ hours"
+  ],
+  "treatment": [
+    "Scout lower leaves before tasseling; count pustules per leaf collar",
+    "Apply protective foliar bio-fungicides or strobilurin fungicides at first sign of pustules",
+    "Maintain balanced plant nutrition to avoid excessive nitrogen stress"
+  ],
+  "organicTreatment": [
+    "Liquid sulfur formulation (3g/L) during early vegetative stages",
+    "Neem seed kernel extract (NSKE 5%) foliar spray",
+    "Bacillus subtilis bio-fungicide foliar application"
+  ],
+  "chemicalTreatment": [
+    "Azoxystrobin 18.2% + Difenoconazole 11.4% SC (1ml/L)",
+    "Pyraclostrobin 20% WG or Mancozeb 75 WP (2.5g/L)"
+  ],
+  "chemicalWarning": "Apply when pustules appear on lower leaves before silking. Strictly observe pre-harvest interval.",
+  "preventiveMeasures": [
+    "Plant rust-resistant corn hybrid varieties with Rp gene resistance",
+    "Early planting to avoid peak mid-season airborne spore migrations",
+    "Balanced potassium fertilization to strengthen stalk and leaf cell walls"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Leaf sheaths",
+    "Husk leaves"
+  ],
+  "simpleExplanation": "Powdery reddish-brown rust spots on corn leaves caused by wind-borne fungus during cool, damp weather.",
+  "regionalNames": {
+    "ta": "சோளம் பொது துரு நோய் (Common Rust)",
+    "hi": "मक्का का सामान्य रतुआ रोग (Common Rust)",
+    "te": "మొక్కజొన్న సాధారణ తుప్పు తెగులు",
+    "kn": "ಮೆಕ್ಕೆಜೋಳದ ಸಾಮಾನ್ಯ ತುಕ್ಕು ರೋಗ",
+    "ml": "ചോളം തുരുമ്പ് രോഗം",
+    "mr": "मका तांबेरा रोग",
+    "bn": "ভুট্টার সাধারণ মরিচা রোগ"
+  }
+},
+{
+  "crop": "Corn",
+  "diseaseName": "Cercospora Leaf Spot",
+  "scientificName": "Cercospora zeae-maydis",
+  "classId": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+  "isHealthy": false,
+  "severity": "High",
+  "symptoms": [
+    "Small, tan or gray rectangular lesions parallel to leaf veins",
+    "Lesions enlarge into long, rectangular block-shaped gray spots bounded by veins",
+    "Entire leaf tissue turns gray and blighted under high disease pressure"
+  ],
+  "causes": [
+    "Cercospora fungal spores surviving in corn surface residues",
+    "Warm, humid weather (24°C to 30°C) with persistent fog or dew",
+    "Continuous minimum-tillage corn farming"
+  ],
+  "treatment": [
+    "Bury infected crop residues after harvest through clean tillage",
+    "Apply foliar fungicide if lesions reach the third leaf below the ear leaf before pollination",
+    "Ensure adequate row spacing for canopy airflow"
+  ],
+  "organicTreatment": [
+    "Copper oxychloride 50 WP (2.5g/L)",
+    "Trichoderma viride foliar spray (5g/L)"
+  ],
+  "chemicalTreatment": [
+    "Azoxystrobin + Propiconazole (1ml/L)",
+    "Trifloxystrobin + Tebuconazole 75 WG (0.7g/L)"
+  ],
+  "chemicalWarning": "Fungicide application is most cost-effective between tasseling (VT) and early silking (R1).",
+  "preventiveMeasures": [
+    "Plant resistant maize hybrids",
+    "Rotate fields away from corn for at least 1-2 years",
+    "Manage surface residue with post-harvest chopping"
+  ],
+  "affectedParts": [
+    "Lower leaves",
+    "Middle canopy leaves",
+    "Leaf sheaths"
+  ],
+  "simpleExplanation": "Rectangular gray spots running between corn leaf veins, common in humid, foggy conditions.",
+  "regionalNames": {
+    "ta": "சோளம் சாம்பல் இலைப்புள்ளி நோய் (Gray Leaf Spot)",
+    "hi": "मक्का का धूसर पत्ती धब्बा (Gray Leaf Spot)",
+    "te": "మొక్కజొన్న బూడిద ఆకుమచ్చ తెగులు",
+    "kn": "ಮೆಕ್ಕೆಜೋಳದ ಬೂದು ಎಲೆ ಕಲೆ ರೋಗ",
+    "ml": "ചോളം ചാരനിറത്തിലുള്ള ഇലപ്പുള്ളി",
+    "mr": "मका करपा रोग",
+    "bn": "ভুট্টার ধূসর পাতার দাগ"
+  }
+},
+{
+  "crop": "Corn",
+  "diseaseName": "Northern Leaf Blight",
+  "scientificName": "Exserohilum turcicum",
+  "classId": "Corn_(maize)___Northern_Leaf_Blight",
+  "isHealthy": false,
+  "severity": "High",
+  "symptoms": [
+    "Long, elliptical, cigar-shaped grayish-green to tan lesions (2.5cm to 15cm long)",
+    "Lesions show dark dusty fungal spore layers in damp mornings",
+    "Leaves become shredded, dry, and brittle"
+  ],
+  "causes": [
+    "Fungus surviving in corn debris over winter",
+    "Moderate temperatures (18°C - 27°C) with frequent rain or overhead irrigation",
+    "Extended leaf wetness (6 to 12 hours)"
+  ],
+  "treatment": [
+    "Deep tillage of infected stubble post-harvest",
+    "Foliar fungicide application if lesions appear before silking stage",
+    "Avoid overhead sprinkler irrigation late in the evening"
+  ],
+  "organicTreatment": [
+    "Pseudomonas fluorescens foliar spray (5g/L)",
+    "Liquid copper formulation (2.5ml/L)"
+  ],
+  "chemicalTreatment": [
+    "Mancozeb 75 WP (2.5g/L) or Propiconazole 25 EC (1ml/L)",
+    "Azoxystrobin 23% SC (1ml/L)"
+  ],
+  "chemicalWarning": "Spray at first sign on lower leaves before disease moves up into the ear zone.",
+  "preventiveMeasures": [
+    "Plant resistant corn hybrids carrying Ht genes",
+    "Rotate with non-host crops (soybean, vegetables)",
+    "Avoid excess plant population densities"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Ear husks"
+  ],
+  "simpleExplanation": "Large cigar-shaped grayish-tan blighted patches on corn leaves caused by fungus during damp weather.",
+  "regionalNames": {
+    "ta": "சோளம் வட இலை கருகல் நோய் (Northern Leaf Blight)",
+    "hi": "मक्का का उत्तरी पत्ती झुलसा रोग",
+    "te": "మొక్కజొన్న ఉత్తర ఆకు ఎండు తెగులు",
+    "kn": "ಮೆಕ್ಕೆಜೋಳದ ಉತ್ತರ ಎಲೆ ಕಮಟು ರೋಗ",
+    "ml": "ചോളം ഇല കരിച്ചിൽ",
+    "mr": "मका तुरा करपा",
+    "bn": "ভুট্টার উত্তর পাতার ধসা রোগ"
+  }
+},
+{
+  "crop": "Corn",
+  "diseaseName": "Healthy",
+  "scientificName": "Zea mays",
+  "classId": "Corn_(maize)___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Broad, deep green leaves with strong central midribs, upright stalks, and clean silk"
+  ],
+  "causes": [
+    "Optimal soil nutrients, balanced moisture, and good weed control"
+  ],
+  "treatment": [
+    "No treatment required. Maintain standard corn crop agronomy."
+  ],
+  "organicTreatment": [
+    "Apply vermicompost or jeevamrutha during knee-high and tasseling stages."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Side-dress nitrogen according to growth stage (V6 and V10)",
+    "Monitor for fall armyworm and rust symptoms weekly"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your maize/corn crop displays vigorous, dark green foliage with excellent health.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான சோளப் பயிர் (Healthy Corn)",
+    "hi": "स्वस्थ मक्का (Healthy Corn)",
+    "te": "ఆరోగ్యకరమైన మొక్కజొన్న",
+    "kn": "ಆರೋಗ್ಯಕರ ಮೆಕ್ಕೆಜೋಳ",
+    "ml": "ആരോഗ്യമുള്ള ചോളം",
+    "mr": "निरोगी मका",
+    "bn": "স্বাস্থ্যকর ভুট্টা"
+  }
+},
+{
+  "crop": "Peach",
+  "diseaseName": "Bacterial Spot",
+  "scientificName": "Xanthomonas arboricola pv. pruni",
+  "classId": "Peach___Bacterial_spot",
+  "isHealthy": false,
+  "severity": "High",
+  "symptoms": [
+    "Small angular water-soaked dark spots on leaves, becoming purple-black",
+    "Centers of spots drop out giving a shot-hole appearance",
+    "Deep pitted cracks and gummy lesions on ripening peach fruit"
+  ],
+  "causes": [
+    "Bacterium overwintering in twig cankers and bud scales",
+    "Warm, wet, windy weather (21°C - 30°C) with blowing rain",
+    "Sandy soil causing nutrient stress and wind abrasions"
+  ],
+  "treatment": [
+    "Prune out infected twig cankers during winter dormancy",
+    "Apply protective copper or oxytetracycline sprays starting at shuck split",
+    "Avoid overhead sprinkler irrigation"
+  ],
+  "organicTreatment": [
+    "Copper hydroxide spray during dormancy and bud swell",
+    "Zinc sulfate + hydrated lime spray mix (Bordeaux analog)"
+  ],
+  "chemicalTreatment": [
+    "Oxytetracycline (Mycoshield) at 150-200 ppm",
+    "Copper octanoate (low-rate copper to avoid phytotoxicity on peach leaves)"
+  ],
+  "chemicalWarning": "Peach leaves are sensitive to copper injury. Never apply high-rate copper after petal fall.",
+  "preventiveMeasures": [
+    "Plant bacterial spot-resistant peach cultivars",
+    "Erect windbreaks around orchard perimeters in sandy sites",
+    "Maintain balanced potassium and nitrogen nutrition"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Fruit",
+    "Twigs"
+  ],
+  "simpleExplanation": "Angular dark spots that fall out leaving shot-holes in peach leaves, and cracking fruit.",
+  "regionalNames": {
+    "ta": "பீச் பாக்டீரியா புள்ளி நோய் (Bacterial Spot)",
+    "hi": "आड़ू का जीवाणु धब्बा रोग",
+    "te": "పీచ్ బ్యాక్టీరియల్ మచ్చ తెగులు",
+    "kn": "ಪೀಚ್ ಬ್ಯಾಕ್ಟೀರಿಯಾ ಕಲೆ ರೋಗ",
+    "ml": "പീച്ച് ബാക്ടീരിയൽ സ്പോട്ട്",
+    "mr": "पीच जिवाणूजन्य ठिपके",
+    "bn": "পিচ ফলের ব্যাক্টেরিয়াল দাগ"
+  }
+},
+{
+  "crop": "Peach",
+  "diseaseName": "Healthy",
+  "scientificName": "Prunus persica",
+  "classId": "Peach___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Lush, spear-shaped green peach leaves with smooth margins, no spotting or leaf curl"
+  ],
+  "causes": [
+    "Good orchard sanitation, dormant spray coverage, and balanced fertilization"
+  ],
+  "treatment": [
+    "No treatment required. Maintain routine orchard management."
+  ],
+  "organicTreatment": [
+    "Apply organic mulch around drip lines; spray seaweed extract for fruit sizing."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Maintain open-center canopy pruning for maximum sunlight penetration",
+    "Monitor for peach leaf curl and aphids in spring"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your peach foliage is clean, healthy, and developing vigorously.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான பீச் மரம் (Healthy Peach)",
+    "hi": "स्वस्थ आड़ू (Healthy Peach)",
+    "te": "ఆరోగ్యకరమైన పీచ్",
+    "kn": "ಆರೋಗ್ಯಕರ ಪೀಚ್",
+    "ml": "ആരോഗ്യമുള്ള പീച്ച്",
+    "mr": "निरोगी पीच",
+    "bn": "স্বাস্থ্যকর পিচ"
+  }
+},
+{
+  "crop": "Grape",
+  "diseaseName": "Black Rot",
+  "scientificName": "Guignardia bidwellii",
+  "classId": "Grape___Black_rot",
+  "isHealthy": false,
+  "severity": "High",
+  "symptoms": [
+    "Small, round reddish-brown spots with dark borders on grape leaves",
+    "Tiny black fruiting bodies (pycnidia) arranged in a ring inside spots",
+    "Grape berries turn brown, shrivel into hard, black wrinkled mummies"
+  ],
+  "causes": [
+    "Fungus overwintering in mummified berries left on the vine or ground",
+    "Warm, wet weather (21°C - 32°C) with 6-7 hours of continuous leaf wetness",
+    "Splashing rain dispersing ascospores in early spring"
+  ],
+  "treatment": [
+    "Rake and remove all mummified berries from the vine and vineyard floor",
+    "Prune vines in dormancy to increase sun exposure and rapid drying",
+    "Apply protective fungicides from bud break through 4 weeks post-bloom"
+  ],
+  "organicTreatment": [
+    "Liquid copper sprays at 5cm shoot growth and before bloom",
+    "Neem seed kernel extract or bio-fungicide formulations"
+  ],
+  "chemicalTreatment": [
+    "Myclobutanil 40 WP (0.5g/L) or Mancozeb 75 WP (2g/L)",
+    "Kresoxim-methyl 44.3% SC or Difenoconazole 25 EC"
+  ],
+  "chemicalWarning": "Critical protection period is from early bloom until berries develop natural resistance.",
+  "preventiveMeasures": [
+    "Keep grape clusters open to air using shoot thinning and leaf pulling",
+    "Eliminate wild grapevines within 500 meters of the vineyard",
+    "Avoid overhead sprinkler irrigation"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Shoots",
+    "Tendrils",
+    "Grape berries"
+  ],
+  "simpleExplanation": "Red-brown spots with tiny black rings on grape leaves, causing grapes to shrivel into black mummies.",
+  "regionalNames": {
+    "ta": "திராட்சை கருப்பு அழுகல் நோய் (Black Rot)",
+    "hi": "अंगूर का काला सड़न रोग (Black Rot)",
+    "te": "ద్రాక్ష నల్ల కుళ్ళు తెగులు",
+    "kn": "ದ್ರಾಕ್ಷಿ ಕಪ್ಪು ಕೊಳೆ ರೋಗ",
+    "ml": "മുന്തിരി കറുത്ത അഴുകൽ",
+    "mr": "द्राक्ष काळा कुजवा",
+    "bn": "আঙুরের কালো পচা রোগ"
+  }
+},
+{
+  "crop": "Grape",
+  "diseaseName": "Esca (Black Measles)",
+  "scientificName": "Phaeomoniella chlamydospora",
+  "classId": "Grape___Esca_(Black_Measles)",
+  "isHealthy": false,
+  "severity": "Critical",
+  "symptoms": [
+    "Distinctive 'tiger-stripe' leaf pattern: yellow and brown necrosis between green veins",
+    "Grape berries show dark purple/black spots resembling measles",
+    "Vines show sudden apoplexy (sudden vine wilt and death during midsummer heat)"
+  ],
+  "causes": [
+    "Complex fungal trunk disease infecting large pruning wounds",
+    "Wood-rotting fungi spreading through xylem vessels",
+    "Drought stress followed by intense summer heat"
+  ],
+  "treatment": [
+    "Prune infected arms down to clean, healthy wood; sterilize pruning shears",
+    "Seal all large pruning wounds immediately with pruning wound sealant or Trichoderma",
+    "Uproot and burn dead or collapsed vines"
+  ],
+  "organicTreatment": [
+    "Trichoderma atroviride pruning wound protectant",
+    "Foliar calcium and seaweed extracts to reduce heat stress"
+  ],
+  "chemicalTreatment": [
+    "No systemic curative chemical exists for deep wood necrosis. Prevent wound infections with Thiophanate-methyl or pyraclostrobin wound sprays."
+  ],
+  "chemicalWarning": "Prune late in dormancy when wounds heal fastest. Paint wounds within 24 hours of cutting.",
+  "preventiveMeasures": [
+    "Adopt double-pruning or delayed pruning techniques",
+    "Sanitize shears between vines with 70% alcohol or 10% bleach",
+    "Use certified disease-free rootstocks and grafted benchgrafts"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Vascular wood",
+    "Grape bunches"
+  ],
+  "simpleExplanation": "Trunk disease causing tiger-stripe leaves and measles spots on grapes. Prevent through clean pruning.",
+  "regionalNames": {
+    "ta": "திராட்சை எஸ்கா / கருப்பு தட்டம்மை (Esca)",
+    "hi": "अंगूर का एस्का रोग (Black Measles)",
+    "te": "ద్రాక్ష ఎస్కా తెగులు",
+    "kn": "ದ್ರಾಕ್ಷಿ ಎಸ್ಕಾ ರೋಗ",
+    "ml": "മുന്തിരി എസ്ക രോഗം",
+    "mr": "द्राक्ष एस्का रोग",
+    "bn": "আঙুরের এসকা রোগ"
+  }
+},
+{
+  "crop": "Grape",
+  "diseaseName": "Leaf Blight",
+  "scientificName": "Pseudocercospora vitis",
+  "classId": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+  "isHealthy": false,
+  "severity": "Medium",
+  "symptoms": [
+    "Irregular brown to black angular lesions on grape leaves",
+    "Dark olive to brownish-gray velvety spore mat on the underside of spots",
+    "Severe premature defoliation exposing grape clusters to sunscald"
+  ],
+  "causes": [
+    "Fungus surviving in fallen leaves and dormant cane crevices",
+    "Warm temperatures (22°C - 28°C) accompanied by high relative humidity",
+    "Dense canopy with poor air movement"
+  ],
+  "treatment": [
+    "Remove fallen leaves after harvest and cultivate vineyard soil",
+    "Apply protective copper or triazole fungicide after fruit set",
+    "Summer leaf removal around the fruiting zone"
+  ],
+  "organicTreatment": [
+    "Bordeaux mixture (1%) post-pruning and after berry set",
+    "Copper hydroxide spray (2g/L)"
+  ],
+  "chemicalTreatment": [
+    "Mancozeb 75 WP (2g/L) or Carbendazim 50 WP (1g/L)",
+    "Azoxystrobin 23% SC (1ml/L)"
+  ],
+  "chemicalWarning": "Spray thoroughly on both upper and lower leaf surfaces. Observe pre-harvest safety interval.",
+  "preventiveMeasures": [
+    "Ensure trellis orientation captures prevailing summer winds",
+    "Maintain adequate vine spacing and shoot thinning",
+    "Avoid excess nitrogen fertilizer that creates dense foliage"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Canes"
+  ],
+  "simpleExplanation": "Angular brown spots with velvety underside mats that cause grape leaves to drop prematurely.",
+  "regionalNames": {
+    "ta": "திராட்சை இலை கருகல் நோய் (Leaf Blight)",
+    "hi": "अंगूर का पत्ती झुलसा रोग (Leaf Blight)",
+    "te": "ద్రాక్ష ఆకు ఎండు తెగులు",
+    "kn": "ದ್ರಾಕ್ಷಿ ಎಲೆ ಕಮಟು ರೋಗ",
+    "ml": "മുന്തിരി ഇല കരിച്ചിൽ",
+    "mr": "द्राक्ष पानावरील करपा",
+    "bn": "আঙুরের পাতার ধসা রোগ"
+  }
+},
+{
+  "crop": "Grape",
+  "diseaseName": "Healthy",
+  "scientificName": "Vitis vinifera",
+  "classId": "Grape___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Lush, bright green palmately-lobed grape leaves with smooth edges and vigorous tendrils"
+  ],
+  "causes": [
+    "Proper canopy management, balanced fertigation, and regular scouting"
+  ],
+  "treatment": [
+    "No treatment required. Continue regular canopy upkeep."
+  ],
+  "organicTreatment": [
+    "Foliar spray of fish amino acid or cow urine (5%) to enhance leaf luster."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Keep canopies open to light and wind through canopy hedging",
+    "Maintain drip fertigation based on vine vegetative vigor"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your grape foliage is healthy, clean, and carrying strong photosynthesizing canopy.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான திராட்சை கொடி (Healthy Grape)",
+    "hi": "स्वस्थ अंगूर (Healthy Grape)",
+    "te": "ఆరోగ్యకరమైన ద్రాక్ష",
+    "kn": "ಆರೋಗ್ಯಕರ ದ್ರಾಕ್ಷಿ",
+    "ml": "ആരോഗ്യമുള്ള മുന്തിരി",
+    "mr": "निरोगी द्राक्ष",
+    "bn": "স্বাস্থ্যকর আঙুর"
+  }
+},
+{
+  "crop": "Tomato",
+  "diseaseName": "Yellow Leaf Curl Virus",
+  "scientificName": "Tomato yellow leaf curl virus (TYLCV)",
+  "classId": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+  "isHealthy": false,
+  "severity": "Critical",
+  "symptoms": [
+    "Severe upward cupping and curling of tomato leaflets",
+    "Interveinal yellowing (chlorosis) and distinct bright yellow leaf margins",
+    "Severe stunting of plant height; bushy dwarf appearance",
+    "Complete flower drop resulting in total yield loss if infected early"
+  ],
+  "causes": [
+    "Begomovirus transmitted exclusively by the sweetpotato whitefly (Bemisia tabaci)",
+    "Warm tropical and Mediterranean climates favoring rapid whitefly multiplication",
+    "Weed reservoirs and nearby infected solanaceous plantings"
+  ],
+  "treatment": [
+    "No chemical cure exists for viral infection; rogue and bury infected tomato plants immediately",
+    "Target whitefly vectors rigorously using physical barriers and systemic control",
+    "Hang yellow sticky cards (15-20 per acre) across the field"
+  ],
+  "organicTreatment": [
+    "Install 50-mesh insect-proof netting in nurseries",
+    "Neem oil spray (5ml/L) or Pongamia oil to deter whiteflies",
+    "Beauveria bassiana entomopathogenic fungus against whitefly nymphs"
+  ],
+  "chemicalTreatment": [
+    "Thiamethoxam 25 WG (0.3g/L) or Imidacloprid 17.8 SL (0.5ml/L)",
+    "Spiromesifen 22.9 SC or Diafenthiuron 50 WP for whitefly resistance management"
+  ],
+  "chemicalWarning": "Rotate insecticide modes of action to prevent rapid whitefly resistance development.",
+  "preventiveMeasures": [
+    "Plant TYLCV-resistant hybrid tomato varieties (Ty-1, Ty-2, Ty-3 genes)",
+    "Use yellow sticky traps to detect whitefly incursions early",
+    "Eliminate alternative weed hosts (datura, nightshade, parthenium) around fields"
+  ],
+  "affectedParts": [
+    "Young leaves",
+    "Apical growing points",
+    "Flower blossoms"
+  ],
+  "simpleExplanation": "Devastating viral disease spread by tiny whiteflies causing leaves to curl upward and turn yellow.",
+  "regionalNames": {
+    "ta": "தக்காளி இலை சுருட்டல் வைரஸ் நோய் (Leaf Curl)",
+    "hi": "टमाटर का पीली पत्ती मरोड़ रोग (Yellow Leaf Curl)",
+    "te": "టమోటా ఆకు ముడుత వైరస్ తెగులు",
+    "kn": "ಟೊಮ್ಯಾಟೊ ಹಳದಿ ಎಲೆ ಸುರುಟು ರೋಗ",
+    "ml": "തക്കാളി ഇല മുരടിപ്പ് രോഗം",
+    "mr": "टोमॅटो पर्णगुच्छ रोग",
+    "bn": "টমেটোর পাতা কোঁকড়ানো রোগ"
+  }
+},
+{
+  "crop": "Squash",
+  "diseaseName": "Powdery Mildew",
+  "scientificName": "Podosphaera xanthii",
+  "classId": "Squash___Powdery_mildew",
+  "isHealthy": false,
+  "severity": "Medium",
+  "symptoms": [
+    "White talcum powder-like fungal patches on upper and lower leaf surfaces",
+    "Powdery spots expand, cover whole leaves, stems, and petioles",
+    "Leaves turn yellow, brown, and become dry and crispy like paper"
+  ],
+  "causes": [
+    "Airborne fungal spores thriving in warm, dry weather with high relative humidity",
+    "Dense shade and overcrowded plantings",
+    "Lack of direct sunlight in bottom foliage"
+  ],
+  "treatment": [
+    "Prune crowded older leaves to allow direct sunlight onto lower stems",
+    "Apply foliar bio-fungicides at very first appearance of white powdery spots",
+    "Maintain adequate soil irrigation; drought stress accelerates powdery mildew"
+  ],
+  "organicTreatment": [
+    "Potassium bicarbonate or baking soda spray (5g/L + 2ml liquid soap)",
+    "Milk spray (1 part milk to 9 parts water) in bright sunlight",
+    "Wettable sulfur (2g/L) - do not spray above 32°C"
+  ],
+  "chemicalTreatment": [
+    "Difenoconazole 25 EC (0.5ml/L) or Myclobutanil",
+    "Azoxystrobin 23% SC or Kresoxim-methyl"
+  ],
+  "chemicalWarning": "Do not apply sulfur when temperatures exceed 32°C to prevent foliar scorch.",
+  "preventiveMeasures": [
+    "Plant powdery mildew-resistant squash and pumpkin varieties",
+    "Space vines widely for maximum sun and breeze",
+    "Clean post-harvest squash vine debris"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Petioles",
+    "Stems"
+  ],
+  "simpleExplanation": "White powdery dusting on squash leaves that dries them out. Spray early with bio-fungicide or sulfur.",
+  "regionalNames": {
+    "ta": "பூசணி சாம்பல் நோய் (Powdery Mildew)",
+    "hi": "कद्दू का चूर्णिल फफूंद रोग (Powdery Mildew)",
+    "te": "గుమ్మడి బూడిద తెగులు",
+    "kn": "ಕುಂಬಳಕಾಯಿ ಬೂದಿ ರೋಗ",
+    "ml": "മത്തൻ ചാരം പൂപ്പൽ",
+    "mr": "भोपळ्यावरील भुरी रोग",
+    "bn": "কুমড়ার সাদা গুঁড়ো রোগ"
+  }
+},
+{
+  "crop": "Strawberry",
+  "diseaseName": "Leaf Scorch",
+  "scientificName": "Diplocarpon earlianum",
+  "classId": "Strawberry___Leaf_scorch",
+  "isHealthy": false,
+  "severity": "Medium",
+  "symptoms": [
+    "Small, irregular purple or dark red spots on the upper leaf surface",
+    "Spots coalesce, leaf margins turn brown, dry, and curl upwards as if burned/scorched",
+    "Affected leaves wither and die, reducing crown vigor"
+  ],
+  "causes": [
+    "Fungus surviving in dead strawberry leaves and crowns",
+    "Frequent rain, overhead irrigation, and prolonged leaf wetness",
+    "Warm humid spring weather (20°C - 26°C)"
+  ],
+  "treatment": [
+    "Remove and destroy spotted or scorched leaves after harvest renovation",
+    "Switch from overhead sprinkler to drip irrigation under plastic mulch",
+    "Apply protective foliar fungicides before flowering"
+  ],
+  "organicTreatment": [
+    "Copper hydroxide spray (2g/L) during early spring growth",
+    "Bacillus amyloliquefaciens biological spray"
+  ],
+  "chemicalTreatment": [
+    "Captan 50 WP (2g/L) or Thiophanate-methyl 70 WP (1g/L)",
+    "Pyraclostrobin + Boscalid"
+  ],
+  "chemicalWarning": "Apply during early vegetative leaf flush before heavy flowering begins.",
+  "preventiveMeasures": [
+    "Plant certified disease-free strawberry runners",
+    "Ensure strawberry beds are well-drained and mulched with clean straw",
+    "Thin out runners to avoid dense matting"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Petioles",
+    "Runners",
+    "Sepals"
+  ],
+  "simpleExplanation": "Purple spots on strawberry leaves that turn brown and curl up, looking like the leaf was scorched by fire.",
+  "regionalNames": {
+    "ta": "ஸ்ட்ராபெரி இலை கருகல் நோய் (Leaf Scorch)",
+    "hi": "स्ट्रॉबेरी का पत्ती झुलसा रोग (Leaf Scorch)",
+    "te": "స్ట్రాబెర్రీ ఆకు ఎండిపోవు తెగులు",
+    "kn": "ಸ್ಟ್ರಾಬೆರಿ ಎಲೆ ಸುಟ್ಟ ರೋಗ",
+    "ml": "സ്ട്രോബെറി ഇല കരിച്ചിൽ",
+    "mr": "स्ट्रॉबेरी पानावरील करपा",
+    "bn": "স্ট্রবেরি পাতার পোড়া রোগ"
+  }
+},
+{
+  "crop": "Strawberry",
+  "diseaseName": "Healthy",
+  "scientificName": "Fragaria × ananassa",
+  "classId": "Strawberry___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Lush, trifoliate dark-green strawberry leaves with clean serrated margins and white blossoms"
+  ],
+  "causes": [
+    "Clean runner planting, proper drip irrigation under plastic mulch, and good air flow"
+  ],
+  "treatment": [
+    "No treatment required. Continue regular strawberry bed scouting."
+  ],
+  "organicTreatment": [
+    "Apply foliar seaweed spray and organic mulch around crowns."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Keep fruit elevated off bare soil using straw or silver plastic mulch",
+    "Monitor crown moisture to prevent crown rot"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your strawberry plants are vibrant, clean, and in prime fruiting condition.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான ஸ்ட்ராபெரி பயிர் (Healthy Strawberry)",
+    "hi": "स्वस्थ स्ट्रॉबेरी (Healthy Strawberry)",
+    "te": "ఆరోగ్యకరమైన స్ట్రాబెర్రీ",
+    "kn": "ಆರೋಗ್ಯಕರ ಸ್ಟ್ರಾಬೆರಿ",
+    "ml": "ആരോഗ്യമുള്ള സ്ട്രോബെറി",
+    "mr": "निरोगी स्ट्रॉबेरी",
+    "bn": "স্বাস্থ্যকর স্ট্রবেরি"
+  }
+},
+{
+  "crop": "Cherry",
+  "diseaseName": "Powdery Mildew",
+  "scientificName": "Podosphaera clandestina",
+  "classId": "Cherry_(including_sour)___Powdery_mildew",
+  "isHealthy": false,
+  "severity": "Medium",
+  "symptoms": [
+    "Circular patches of white powdery fungal mycelium on new terminal leaves",
+    "Leaves become distorted, puckered, and curl upward",
+    "White fungal patches on green cherry fruit leading to fruit deformation"
+  ],
+  "causes": [
+    "Overwintering chasmothecia on orchard bark and leaf litter",
+    "Warm dry days (20°C - 28°C) with humid nights",
+    "Excessive irrigation and rapid flush of tender succulent foliage"
+  ],
+  "treatment": [
+    "Prune canopy in dormancy to improve internal sunlight and air movement",
+    "Apply protective bio-fungicide or sulfur sprays starting at petal fall",
+    "Avoid excessive nitrogen fertilization"
+  ],
+  "organicTreatment": [
+    "Wettable sulfur (2g/L) starting at shuck fall",
+    "Potassium bicarbonate spray (3g/L) as a curative knockdown",
+    "Neem seed oil (3ml/L)"
+  ],
+  "chemicalTreatment": [
+    "Myclobutanil 40 WP or Tebuconazole 25.9 EC",
+    "Trifloxystrobin or Quinoxyfen"
+  ],
+  "chemicalWarning": "Protect new emerging green leaves. Do not apply sulfur in hot weather above 32°C.",
+  "preventiveMeasures": [
+    "Irrigate early in the day so foliage remains dry overnight",
+    "Monitor rootstock suckers and prune them out promptly",
+    "Scout shoot terminals weekly in late spring"
+  ],
+  "affectedParts": [
+    "Young leaves",
+    "Shoots",
+    "Cherries"
+  ],
+  "simpleExplanation": "White powdery patches on cherry leaves and young fruit that cause leaf curling and deformation.",
+  "regionalNames": {
+    "ta": "செர்ரி சாம்பல் நோய் (Powdery Mildew)",
+    "hi": "चेरी का चूर्णिल फफूंद रोग",
+    "te": "చెర్రీ బూడిద తెగులు",
+    "kn": "ಚೆರ್ರಿ ಬೂದಿ ರೋಗ",
+    "ml": "ചെറി ചാരം പൂപ്പൽ",
+    "mr": "चेरीवरील भुरी रोग",
+    "bn": "চেরির সাদা গুঁড়ো রোগ"
+  }
+},
+{
+  "crop": "Cherry",
+  "diseaseName": "Healthy",
+  "scientificName": "Prunus avium",
+  "classId": "Cherry_(including_sour)___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Lush, deep green serrated leaves with strong branch growth and clean developing fruit"
+  ],
+  "causes": [
+    "Good orchard pruning, dormant copper sprays, and balanced fertigation"
+  ],
+  "treatment": [
+    "No treatment required. Maintain standard cherry orchard care."
+  ],
+  "organicTreatment": [
+    "Apply organic compost around root drip line; spray foliar micro-nutrients."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Ensure annual dormant pruning for open canopy architecture",
+    "Keep bird netting ready as cherries begin color break"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your cherry trees display healthy, vibrant leaves and strong vigor.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான செர்ரி மரம் (Healthy Cherry)",
+    "hi": "स्वस्थ चेरी (Healthy Cherry)",
+    "te": "ఆరోగ్యకరమైన చెర్రీ",
+    "kn": "ಆರೋಗ್ಯಕರ ಚೆರ್ರಿ",
+    "ml": "ആരോഗ്യമുള്ള ചെറി",
+    "mr": "निरोगी चेरी",
+    "bn": "স্বাস্থ্যকর চেরি"
+  }
+},
+{
+  "crop": "Orange",
+  "diseaseName": "Citrus Greening",
+  "scientificName": "Candidatus Liberibacter asiaticus",
+  "classId": "Orange___Haunglongbing_(Citrus_greening)",
+  "isHealthy": false,
+  "severity": "Critical",
+  "symptoms": [
+    "Asymmetrical blotchy yellow mottle on leaves crossing leaf veins",
+    "Small, upright, chlorotic leaves resembling zinc deficiency",
+    "Yellow shoots ('yellow dragon') standing out in a single branch",
+    "Lopsided, small, bitter fruit that stays green at the bottom ('greening')"
+  ],
+  "causes": [
+    "Fastidious phloem-limited bacterium transmitted by the Asian citrus psyllid (Diaphorina citri)",
+    "Graft transmission from infected budwood",
+    "Warm subtropical conditions accelerating psyllid populations"
+  ],
+  "treatment": [
+    "No cure exists for greening. Remove and destroy infected trees to safeguard the grove",
+    "Control Asian citrus psyllids aggressively across all neighboring trees",
+    "Apply foliar nutritional sprays (Zinc, Iron, Manganese) to prolong productive life of asymptomatic trees"
+  ],
+  "organicTreatment": [
+    "Release Tamarixia radiata parasitoid wasps for biological psyllid control",
+    "Neem oil (5ml/L) or horticultural mineral oil (1-2%) to suffocate psyllid nymphs"
+  ],
+  "chemicalTreatment": [
+    "Imidacloprid soil drench in young trees",
+    "Thiamethoxam 25 WG or Dimethoate 30 EC foliar spray during new feather flushes"
+  ],
+  "chemicalWarning": "Psyllid control must be timed during new leaf flushes when eggs and nymphs are present.",
+  "preventiveMeasures": [
+    "Plant only certified disease-free citrus nursery trees from screened polyhouses",
+    "Control psyllid vectors year-round using area-wide management",
+    "Eradicate infected citrus trees promptly"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Shoots",
+    "Vascular phloem",
+    "Citrus fruit"
+  ],
+  "simpleExplanation": "Devastating bacterial disease spread by tiny citrus psyllid bugs causing blotchy yellow leaves and sour, bitter fruit.",
+  "regionalNames": {
+    "ta": "ஆரஞ்சு சிட்ரஸ் கிரீனிங் நோய் (Citrus Greening)",
+    "hi": "संतरा का सिट्रस ग्रीनिंग रोग (Citrus Greening)",
+    "te": "నారింజ సిట్రస్ గ్రీనింగ్ తెగులు",
+    "kn": "ಕಿತ್ತಳೆ ಸಿಟ್ರಸ್ ಹಸಿರು ರೋಗ",
+    "ml": "ഓറഞ്ച് സിട്രസ് ഗ്രീനിംഗ്",
+    "mr": "संत्र्यावरील सिट्रस ग्रीनिंग",
+    "bn": "কমলার সিট্রাস গ্রিনিং রোগ"
+  }
+},
+{
+  "crop": "Blueberry",
+  "diseaseName": "Healthy",
+  "scientificName": "Vaccinium corymbosum",
+  "classId": "Blueberry___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Lush, glossy ovate green leaves with no chlorosis, strong woody canes, and healthy berry clusters"
+  ],
+  "causes": [
+    "Acidic soil conditions (pH 4.5 - 5.5), pine bark mulch, and uniform drip moisture"
+  ],
+  "treatment": [
+    "No treatment required. Continue standard berry maintenance."
+  ],
+  "organicTreatment": [
+    "Apply pine bark mulch and acidic compost to maintain low soil pH."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Check soil pH biannually with a soil test kit",
+    "Maintain drip irrigation with acid injection if water is alkaline"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your blueberry foliage is vibrant, healthy, and thriving in ideal soil conditions.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான ப்ளூபெர்ரி பயிர் (Healthy Blueberry)",
+    "hi": "स्वस्थ ब्लूबेरी (Healthy Blueberry)",
+    "te": "ఆరోగ్యకరమైన బ్లూబెర్రీ",
+    "kn": "ಆರೋಗ್ಯಕರ ಬ್ಲೂಬೆರಿ",
+    "ml": "ആരോഗ്യമുള്ള ബ്ലൂബെറി",
+    "mr": "निरोगी ब्लूबेरी",
+    "bn": "স্বাস্থ্যকর ব্লুবেরি"
+  }
+},
+{
+  "crop": "Raspberry",
+  "diseaseName": "Healthy",
+  "scientificName": "Rubus idaeus",
+  "classId": "Raspberry___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Vigorous green compound leaves with serrated edges, strong primocanes, and healthy flower buds"
+  ],
+  "causes": [
+    "Well-drained soil, adequate trellis support, and balanced organic fertilization"
+  ],
+  "treatment": [
+    "No treatment required. Maintain standard cane management."
+  ],
+  "organicTreatment": [
+    "Foliar compost tea or fish emulsion during early cane extension."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Prune out spent floricanes immediately after summer harvest",
+    "Trellis canes firmly to prevent wind whipping against wires"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your raspberry canes show vigorous green growth and healthy foliage.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான ராஸ்பெர்ரி பயிர் (Healthy Raspberry)",
+    "hi": "स्वस्थ रास्पबेरी (Healthy Raspberry)",
+    "te": "ఆరోగ్యకరమైన రాస్ప్బెర్రీ",
+    "kn": "ಆರೋಗ್ಯಕರ ರಾಸ್ಪ್ಬೆರಿ",
+    "ml": "ആരോഗ്യമുള്ള റാസ്ബെറി",
+    "mr": "निरोगी रास्पबेरी",
+    "bn": "স্বাস্থ্যকর রাস্পবেরি"
+  }
+},
+{
+  "crop": "Soybean",
+  "diseaseName": "Healthy",
+  "scientificName": "Glycine max",
+  "classId": "Soybean___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Trifoliate dark green leaves with active rhizobial nitrogen nodulation and upright vigorous stems"
+  ],
+  "causes": [
+    "Proper seed inoculation, balanced phosphorus and potassium, and weed-free seedbed"
+  ],
+  "treatment": [
+    "No treatment required. Maintain regular field scouting."
+  ],
+  "organicTreatment": [
+    "Foliar spray of Panchagavya (3%) at flowering and pod filling."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Scout for defoliating caterpillars and stem flies during vegetative stages",
+    "Maintain good field drainage during heavy monsoon rains"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your soybean crop displays clean, deep green leaves with strong vegetative growth.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான சோயாபீன் பயிர் (Healthy Soybean)",
+    "hi": "स्वस्थ सोयाबीन (Healthy Soybean)",
+    "te": "ఆరోగ్యకరమైన సోయాబీన్",
+    "kn": "ಆರೋಗ್ಯಕರ ಸೋಯಾಬೀನ್",
+    "ml": "ആരോഗ്യമുള്ള സോയാബീൻ",
+    "mr": "निरोगी सोयाबीन",
+    "bn": "স্বাস্থ্যকর সয়াবিন"
+  }
+}
+,
+{
+  "crop": "Rose",
+  "diseaseName": "Black Spot",
+  "scientificName": "Diplocarpon rosae",
+  "classId": "Rose___Black_spot",
+  "isHealthy": false,
+  "severity": "High",
+  "symptoms": [
+    "Circular black spots with feathery, fringed margins on the upper surface of rose leaves",
+    "Leaf tissue surrounding black spots turns bright yellow (chlorotic)",
+    "Severe premature defoliation leaving lower rose canes completely bare",
+    "Purplish-black blistered cankers on young green rose stems"
+  ],
+  "causes": [
+    "Fungal pathogen Diplocarpon rosae surviving in fallen rose leaves and stem cankers",
+    "Splashing water from overhead watering or rainfall onto lower rose foliage",
+    "Warm, humid conditions (20°C - 27°C) with at least 7 hours of continuous leaf wetness"
+  ],
+  "treatment": [
+    "Prune out infected rose canes 5cm below cankers using sharp, sterilized shears",
+    "Rake up and discard all fallen black-spotted rose leaves and petals; do NOT compost them",
+    "Always water rose bushes at the ground level using drip pipes or soaker hoses; keep foliage dry"
+  ],
+  "organicTreatment": [
+    "Neem oil spray (5ml/L) or potassium bicarbonate spray (3g/L) every 7-10 days",
+    "Wettable sulfur spray (2g/L) during cool morning hours (below 28°C)",
+    "Bacillus subtilis bio-fungicide foliar application"
+  ],
+  "chemicalTreatment": [
+    "Myclobutanil 20 EW (0.75ml/L) or Tebuconazole 25.9% EC (1ml/L) at first sign of spots",
+    "Difenoconazole 25% EC (0.5ml/L) or Mancozeb 75 WP (2g/L) as a protective barrier",
+    "Trifloxystrobin + Tebuconazole combination spray"
+  ],
+  "chemicalWarning": "Do not apply sulfur when temperatures exceed 30°C to prevent petal and foliage scorch. Rotate fungicides to prevent resistance.",
+  "preventiveMeasures": [
+    "Plant black spot-resistant rose varieties (e.g., Knock Out, rugosa, or modern shrub roses)",
+    "Ensure at least 90cm spacing between rose bushes for full sunlight and rapid air drying",
+    "Apply a 5cm layer of clean mulch around rose bases to stop soil-splash spore dispersal"
+  ],
+  "affectedParts": [
+    "Leaves",
+    "Canes",
+    "Flower sepals"
+  ],
+  "environmentalConditions": {
+    "idealTemp": "20°C - 27°C",
+    "humidityRisk": "Relative humidity above 85% with standing leaf moisture",
+    "rainfallImpact": "Rain splash is the primary method of spore dispersal onto upper foliage"
+  },
+  "simpleExplanation": "Very common rose disease causing feathery black spots on yellowing leaves and causing rose bushes to lose their leaves prematurely.",
+  "regionalNames": {
+    "ta": "ரோஜா கருப்பு புள்ளி நோய் (Rose Black Spot)",
+    "hi": "गुलाब का काला धब्बा रोग (Rose Black Spot)",
+    "te": "గులాబీ నల్ల మచ్చ తెగులు",
+    "kn": "ಗುಲಾಬಿ ಕಪ್ಪು ಕಲೆ ರೋಗ",
+    "ml": "റോസ് കറുത്ത പുള്ളി രോഗം",
+    "mr": "गुलाबावरील काळे ठिपके",
+    "bn": "গোলাপের কালো দাগ রোগ"
+  }
+},
+{
+  "crop": "Rose",
+  "diseaseName": "Powdery Mildew",
+  "scientificName": "Podosphaera pannosa",
+  "classId": "Rose___Powdery_mildew",
+  "isHealthy": false,
+  "severity": "Medium",
+  "symptoms": [
+    "White to grayish powdery fungal growth on young leaves, shoots, and flower buds",
+    "Young rose leaves become puckered, twisted, blistered, or curled upward",
+    "Infected rose buds fail to open or produce distorted, stunted blooms"
+  ],
+  "causes": [
+    "Fungal spores carried on gentle air currents",
+    "Warm days (22°C - 28°C) followed by cool, humid nights",
+    "Dense planting with poor air circulation and shady microclimates"
+  ],
+  "treatment": [
+    "Prune out crowded center canes to let sunlight into the rose bush",
+    "Apply foliar bio-fungicides or sulfur early in the season",
+    "Wash foliage with early morning water spray to disrupt spore germination"
+  ],
+  "organicTreatment": [
+    "Potassium bicarbonate spray (3g/L) with mild vegetable oil emulsifier",
+    "Wettable sulfur (2g/L) during morning hours",
+    "Dilute milk spray (1 part milk : 9 parts water) in bright sunlight"
+  ],
+  "chemicalTreatment": [
+    "Myclobutanil 20 EW (0.75ml/L) or Penconazole 10% EC",
+    "Azoxystrobin 23% SC or Difenoconazole"
+  ],
+  "chemicalWarning": "Apply protective sprays during active spring growth. Avoid spraying in hot midday sun.",
+  "preventiveMeasures": [
+    "Plant powdery mildew-resistant rose cultivars",
+    "Ensure rose beds receive at least 6 hours of direct daily sunlight",
+    "Avoid high-nitrogen fertilizers that produce excess tender, succulent shoots"
+  ],
+  "affectedParts": [
+    "Young leaves",
+    "Stems",
+    "Flower buds"
+  ],
+  "simpleExplanation": "White powdery dusting on rose leaves and flower buds that curls foliage and prevents roses from blooming properly.",
+  "regionalNames": {
+    "ta": "ரோஜா சாம்பல் நோய் (Rose Powdery Mildew)",
+    "hi": "गुलाब का चूर्णिल फफूंद रोग",
+    "te": "గులాబీ బూడిద తెగులు",
+    "kn": "ಗುಲಾಬಿ ಬೂದಿ ರೋಗ",
+    "ml": "റോസ് ചാരം പൂപ്പൽ",
+    "mr": "गुलाबावरील भुरी रोग",
+    "bn": "গোলাপের সাদা গুঁড়ো রোগ"
+  }
+},
+{
+  "crop": "Rose",
+  "diseaseName": "Healthy",
+  "scientificName": "Rosa",
+  "classId": "Rose___healthy",
+  "isHealthy": true,
+  "severity": "None",
+  "symptoms": [
+    "Glossy, dark green serrated leaflets, strong thorned canes, and vibrant undamaged flower blossoms"
+  ],
+  "causes": [
+    "Adequate sunlight (6+ hours), balanced rose fertigation, good airflow, and routine deadheading"
+  ],
+  "treatment": [
+    "No corrective action needed. Continue regular rose garden care and deadheading spent blooms."
+  ],
+  "organicTreatment": [
+    "Apply organic compost mulch around drip line and spray seaweed extract monthly."
+  ],
+  "chemicalTreatment": [
+    "None required."
+  ],
+  "preventiveMeasures": [
+    "Deadhead faded blooms down to a 5-leaflet leaf to promote continuous flower flush",
+    "Water at the base with drip irrigation to keep foliage clean and dry"
+  ],
+  "affectedParts": [
+    "None"
+  ],
+  "simpleExplanation": "Your rose bush has healthy, glossy leaves and vibrant blooms with no fungal spots.",
+  "regionalNames": {
+    "ta": "ஆரோக்கியமான ரோஜா செடி (Healthy Rose)",
+    "hi": "स्वस्थ गुलाब (Healthy Rose)",
+    "te": "ఆరోగ్యకరమైన గులాబీ",
+    "kn": "ಆರೋಗ್ಯಕರ ಗುಲಾಬಿ",
+    "ml": "ಆರೋಗ്യമുള്ള റോസ്",
+    "mr": "निरोगी गुलाब",
+    "bn": "স্বাস্থ্যকর গোলাপ"
+  }
+}
 ];
 
 const REGIONAL_ADVISORIES_DATA = [

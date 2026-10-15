@@ -1,6 +1,7 @@
 import os
 import sys
-from fastapi import FastAPI, File, UploadFile, HTTPException, Query
+from fastapi import FastAPI, File, UploadFile, HTTPException, Query, Form
+from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
@@ -64,7 +65,10 @@ async def health_check():
     }
 
 @app.post("/predict")
-async def predict_crop_disease(image: UploadFile = File(...)):
+async def predict_crop_disease(
+    image: UploadFile = File(...),
+    crop: Optional[str] = Form(None)
+):
     filename = image.filename or "unknown"
     ext = os.path.splitext(filename.lower())[1]
     
@@ -86,12 +90,13 @@ async def predict_crop_disease(image: UploadFile = File(...)):
         )
         
     try:
-        result = predict_image_bytes(content)
+        result = predict_image_bytes(content, crop_hint=crop)
         return result
     except ValueError as ve:
         raise HTTPException(status_code=400, detail=str(ve))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))

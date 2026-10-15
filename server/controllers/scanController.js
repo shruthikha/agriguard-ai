@@ -27,8 +27,8 @@ const processDiseasePrediction = async (req, res) => {
     const lon = req.body.lon ? parseFloat(req.body.lon) : (req.user?.location?.lon || 80.044);
     const locationName = req.body.location || (req.user ? `${req.user.location?.district}, ${req.user.location?.state}` : 'Chengalpattu, Tamil Nadu');
 
-    // 1. Call Python ML Service
-    const mlResult = await predictImage(imagePath);
+    // 1. Call Python ML Service with optional user crop hint
+    const mlResult = await predictImage(imagePath, userCropHint);
 
     const detectedCrop = mlResult.crop || 'Tomato';
     const detectedDisease = mlResult.disease || 'Unknown';
@@ -36,10 +36,14 @@ const processDiseasePrediction = async (req, res) => {
     const isHealthy = mlResult.isHealthy || false;
     const classId = mlResult.classId || '';
     const topPredictions = mlResult.topPredictions || [];
+    const alternativePredictions = mlResult.alternativePredictions || topPredictions.slice(1);
+    const quality = mlResult.quality || {};
+    const warnings = mlResult.warnings || [];
+    const cropHintAnalysis = mlResult.cropHintAnalysis || null;
 
     // Confidence tier
     let confidenceLevel = 'High';
-    if (confidence < 50) {
+    if (confidence < 50 || quality?.isOOD) {
       confidenceLevel = 'Low';
     } else if (confidence < 75) {
       confidenceLevel = 'Medium';
@@ -65,7 +69,10 @@ const processDiseasePrediction = async (req, res) => {
       isHealthy,
       weather: weatherData,
       language,
-      diseaseModel: diseaseDoc
+      diseaseModel: diseaseDoc,
+      quality,
+      warnings,
+      userCropHint
     });
 
     // 5. Persist Scan in MongoDB
@@ -77,7 +84,13 @@ const processDiseasePrediction = async (req, res) => {
       confidence,
       confidenceLevel,
       isHealthy,
+      classId,
+      userCropHint,
       topPredictions,
+      alternativePredictions,
+      quality,
+      warnings,
+      cropHintAnalysis,
       diseaseDetails: diseaseDoc ? {
         symptoms: diseaseDoc.symptoms,
         causes: diseaseDoc.causes,
@@ -85,6 +98,7 @@ const processDiseasePrediction = async (req, res) => {
         treatment: diseaseDoc.treatment,
         organicTreatment: diseaseDoc.organicTreatment,
         chemicalTreatment: diseaseDoc.chemicalTreatment,
+        chemicalWarning: diseaseDoc.chemicalWarning || '',
         preventiveMeasures: diseaseDoc.preventiveMeasures
       } : {
         symptoms: [],
@@ -93,11 +107,13 @@ const processDiseasePrediction = async (req, res) => {
         treatment: [],
         organicTreatment: [],
         chemicalTreatment: [],
+        chemicalWarning: '',
         preventiveMeasures: []
       },
       advisory: {
         headline: advisory.headline,
         recommendations: advisory.recommendations,
+        actionSteps: advisory.actionSteps,
         weatherRiskNotice: advisory.weatherRiskNotice,
         priority: advisory.priority,
         listenText: advisory.listenText
@@ -140,14 +156,20 @@ const processDiseasePrediction = async (req, res) => {
     res.status(200).json({
       success: true,
       scanId: savedScan._id,
+      _id: savedScan._id,
       crop: detectedCrop,
       disease: detectedDisease,
       confidence,
       confidenceLevel,
       isHealthy,
       classId,
+      userCropHint,
       imageUrl,
       topPredictions,
+      alternativePredictions,
+      quality,
+      warnings,
+      cropHintAnalysis,
       diseaseDetails: savedScan.diseaseDetails,
       advisory,
       weather: weatherData,
@@ -162,6 +184,7 @@ const processDiseasePrediction = async (req, res) => {
     });
   }
 };
+
 
 // @desc    Get user scan history with filters & pagination
 // @route   GET /api/scans
@@ -223,9 +246,22 @@ const getScanById = async (req, res) => {
     if (!scan) {
       return res.status(404).json({ success: false, message: 'Scan not found' });
     }
+
+    let regionalNames = {};
+    if (scan.classId) {
+      const diseaseDoc = await Disease.findOne({ classId: scan.classId });
+      if (diseaseDoc?.regionalNames) regionalNames = diseaseDoc.regionalNames;
+    }
+
+    const scanObj = scan.toObject();
     res.json({
       success: true,
-      scan
+      scan: {
+        ...scanObj,
+        scanId: scan._id,
+        weather: scan.weatherAtScan,
+        regionalNames
+      }
     });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });

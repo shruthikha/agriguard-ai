@@ -31,24 +31,56 @@ const scanSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  classId: {
+    type: String,
+    default: ''
+  },
+  userCropHint: {
+    type: String,
+    default: ''
+  },
   topPredictions: [{
     crop: String,
     disease: String,
     confidence: Number,
-    isHealthy: Boolean
+    isHealthy: Boolean,
+    classId: String
   }],
+  alternativePredictions: [{
+    crop: String,
+    disease: String,
+    confidence: Number,
+    isHealthy: Boolean,
+    classId: String
+  }],
+  quality: {
+    isBlurry: Boolean,
+    blurScore: Number,
+    isLeafDetected: Boolean,
+    leafRatio: Number,
+    isOOD: Boolean,
+    entropy: Number
+  },
+  warnings: [String],
+  cropHintAnalysis: {
+    type: mongoose.Schema.Types.Mixed,
+    default: null
+  },
   diseaseDetails: {
+
     symptoms: [String],
     causes: [String],
     severity: String,
     treatment: [String],
     organicTreatment: [String],
     chemicalTreatment: [String],
+    chemicalWarning: String,
     preventiveMeasures: [String]
   },
   advisory: {
     headline: String,
     recommendations: [String],
+    actionSteps: [String],
     weatherRiskNotice: String,
     priority: String,
     listenText: String

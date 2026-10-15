@@ -8,7 +8,11 @@ import {
 import api from '../services/api';
 import { useAuth } from '../context/useAuth';
 
-const CROPS = ['Tomato', 'Potato', 'Pepper', 'Apple'];
+const CROPS = [
+  'Tomato', 'Potato', 'Pepper', 'Apple', 'Corn', 'Grape',
+  'Peach', 'Strawberry', 'Squash', 'Cherry', 'Orange',
+  'Blueberry', 'Raspberry', 'Soybean', 'Rose'
+];
 
 export default function DetectPage({ onScanResult, onOpenDemoModal, selectedDemo, onDemoConsumed }) {
   const { t } = useTranslation();

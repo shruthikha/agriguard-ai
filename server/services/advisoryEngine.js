@@ -72,9 +72,20 @@ const LOCALIZED_ADVISORIES = {
 };
 
 /**
- * Generates structured, prioritized advisory combining disease diagnosis and weather.
+ * Generates structured, prioritized advisory combining disease diagnosis, image quality, and weather.
  */
-function generateAdvisory({ crop, disease, confidence, isHealthy, weather = {}, language = 'en', diseaseModel = null }) {
+function generateAdvisory({
+  crop,
+  disease,
+  confidence,
+  isHealthy,
+  weather = {},
+  language = 'en',
+  diseaseModel = null,
+  quality = {},
+  warnings = [],
+  userCropHint = ''
+}) {
   const langKey = LOCALIZED_ADVISORIES[language] ? language : 'en';
   const loc = LOCALIZED_ADVISORIES[langKey];
   
@@ -90,65 +101,110 @@ function generateAdvisory({ crop, disease, confidence, isHealthy, weather = {}, 
   let headline = '';
   let whatHappened = '';
 
+  const isLowConfidence = confidence < 50 || quality?.isOOD;
+  const isModerateConfidence = confidence >= 50 && confidence < 75 && !quality?.isOOD;
+
   // 1. Diagnose Health vs Disease
   if (isHealthy || disease.toLowerCase() === 'healthy') {
     headline = `${crop}: ${loc.healthyTitle}`;
     whatHappened = `Your ${crop} leaf shows clean, green tissues with no visible signs of fungal or bacterial lesions.`;
     recommendations.push(loc.healthyMsg);
+    
+    if (diseaseModel?.preventiveMeasures?.length > 0) {
+      diseaseModel.preventiveMeasures.forEach(p => recommendations.push(p));
+    } else {
+      recommendations.push('Maintain balanced irrigation, good aeration, and routine crop scout checks.');
+    }
+    
     actionSteps.push('Continue balanced drip/furrow watering without splashing muddy water on leaves.');
     actionSteps.push('Scout fields weekly, especially the lower leaf canopy, for any early changes.');
     actionSteps.push('Apply organic compost or balanced N-P-K according to crop growth stage.');
     priority = 'Low';
   } else {
     // Diseased crop
-    if (confidence >= 75) {
+    if (confidence >= 75 && !quality?.isOOD) {
       headline = `${crop} – ${disease} detected with high confidence (${confidence}%)`;
       whatHappened = `Your ${crop} leaf displays characteristic symptoms of ${disease}. Prompt management will prevent field-wide spread.`;
       priority = 'High';
-    } else if (confidence >= 50) {
-      headline = `Possible ${disease} in ${crop} (Moderate confidence: ${confidence}%)`;
-      whatHappened = `The visual patterns match ${disease}, but please cross-check physical symptoms carefully before major spray treatments.`;
+    } else if (isModerateConfidence) {
+      headline = `Probable ${disease} in ${crop} (${confidence}%)`;
+      whatHappened = `Visual patterns indicate suspected ${disease}. Inspect leaf undersides and neighboring plants for confirming signs.`;
       priority = 'Medium';
     } else {
-      headline = `Uncertain diagnosis for ${crop} (Low confidence: ${confidence}%)`;
-      whatHappened = `AI confidence is below optimal threshold. The image may be blurry or shows multiple overlapping stresses.`;
-      recommendations.push('Please take a clear, well-lit photo of the affected leaf in bright daylight or consult an agricultural officer.');
+      headline = `Low Confidence Detection: Suspected ${disease} (${confidence}%)`;
+      whatHappened = `AI confidence is low (${confidence}%). Visual features partially resemble ${disease}, but please verify physical symptoms carefully before applying chemical treatments.`;
       priority = 'Low';
+      recommendations.push('For uncertain diagnosis, inspect physical leaves or consult your local Krishi Vigyan Kendra (KVK) officer.');
     }
 
-    // Pull from disease model seed if available
-    if (diseaseModel && diseaseModel.treatment && diseaseModel.treatment.length > 0) {
+    // Pull disease-specific symptoms for farmer confirmation
+    if (diseaseModel?.symptoms && diseaseModel.symptoms.length > 0) {
+      const topSymptoms = diseaseModel.symptoms.slice(0, 2).join('; ');
+      recommendations.push(`Physical symptom check for ${disease}: ${topSymptoms}.`);
+    }
+
+    // Pull disease-specific treatments
+    if (diseaseModel?.treatment && diseaseModel.treatment.length > 0) {
       diseaseModel.treatment.forEach(t => actionSteps.push(t));
+    } else if (diseaseModel?.organicTreatment && diseaseModel.organicTreatment.length > 0) {
+      diseaseModel.organicTreatment.forEach(t => actionSteps.push(`Organic measure: ${t}`));
     } else {
-      actionSteps.push(`Carefully prune and remove leaves showing visible ${disease} spots.`);
+      actionSteps.push(`Carefully isolate and remove leaves showing visible ${disease} symptoms.`);
       actionSteps.push(`Sanitize cutting shears and dispose of infected foliage outside the crop field.`);
-      actionSteps.push(`Avoid excessive overhead irrigation that leaves water sitting on leaf blades.`);
       actionSteps.push(`Ensure adequate spacing between crop rows to foster dry airflow.`);
     }
 
-    if (diseaseModel && diseaseModel.preventiveMeasures) {
-      diseaseModel.preventiveMeasures.slice(0, 3).forEach(p => recommendations.push(p));
+    // Pull disease-specific preventive measures
+    if (diseaseModel?.preventiveMeasures && diseaseModel.preventiveMeasures.length > 0) {
+      diseaseModel.preventiveMeasures.slice(0, 2).forEach(p => recommendations.push(p));
     }
   }
 
-  // 2. Weather Correlation Rules
+  // 2. Add input quality notices if applicable
+  if (quality?.isBlurry) {
+    recommendations.unshift('⚠️ Image blur detected: Re-take a sharp, close-up photo in bright daylight for higher diagnostic certainty.');
+  }
+  if (quality && quality.isLeafDetected === false) {
+    recommendations.unshift('⚠️ Foliage warning: Photo lacks clear leaf foliage. Ensure the camera focuses on the leaf surface.');
+  }
+
+  // 3. Weather Correlation Rules (Tailored to disease biology)
   const weatherTips = [];
+  const isFungal = ['scab', 'blight', 'rust', 'mold', 'spot'].some(k => disease.toLowerCase().includes(k));
+  const isBacterial = disease.toLowerCase().includes('bacterial');
+  const isViral = disease.toLowerCase().includes('mosaic') || disease.toLowerCase().includes('virus');
+  const isMite = disease.toLowerCase().includes('mite');
+
   if (rainfall > 0) {
-    weatherTips.push('Rain is occurring or forecasted. Do NOT apply foliar sprays today as rain will wash away treatments. Check drainage channels.');
+    weatherTips.push('Rainfall occurring or forecasted. Do NOT apply foliar sprays today to prevent wash-off.');
     if (!isHealthy) priority = 'High';
   }
 
   if (humidity >= 75) {
-    weatherTips.push(`Current humidity is elevated (${humidity}%). Moist air fosters spore germination. Increase plant row spacing and avoid night watering.`);
+    if (isFungal) {
+      weatherTips.push(`High humidity (${humidity}%) creates prime conditions for fungal spore germination. Ensure good canopy ventilation and avoid overhead irrigation.`);
+    } else if (isBacterial) {
+      weatherTips.push(`High humidity (${humidity}%) promotes bacterial lesion expansion. Avoid handling wet plants.`);
+    } else {
+      weatherTips.push(`Elevated ambient humidity (${humidity}%). Monitor lower canopy foliage closely.`);
+    }
     if (!isHealthy && priority !== 'Urgent') priority = 'High';
   }
 
-  if (temp >= 34) {
-    weatherTips.push(`High ambient temperature (${temp}°C). Provide morning irrigation to avoid heat-stress induced leaf scorch.`);
+  if (temp >= 33) {
+    if (isMite) {
+      weatherTips.push(`High temperature (${temp}°C) and dry air accelerate spider mite reproduction. Keep plants well-hydrated.`);
+    } else {
+      weatherTips.push(`Warm temperature (${temp}°C). Provide early morning irrigation to avoid heat-stress induced wilt.`);
+    }
   }
 
   if (windSpeed >= 20) {
-    weatherTips.push(`Breezy winds (${windSpeed} km/h). Delay any chemical or bio-spray to prevent drift wastage.`);
+    weatherTips.push(`Wind speed is ${windSpeed} km/h. Delay spraying treatments to prevent drift waste.`);
+  }
+
+  if (isViral) {
+    weatherTips.push('Viral diseases are vector-transmitted (aphids/thrips). Control insect vectors and sanitize tools.');
   }
 
   if (weatherTips.length > 0) {
@@ -157,8 +213,8 @@ function generateAdvisory({ crop, disease, confidence, isHealthy, weather = {}, 
     weatherRiskNotice = 'Current weather conditions are temperate and stable for normal field activities.';
   }
 
-  // 3. Simple voice read-out text (clean punctuation for TTS)
-  const listenText = `${headline}. ${whatHappened} ${actionSteps.slice(0, 3).join('. ')}. ${weatherRiskNotice}`;
+  // 4. Simple voice read-out text (clean punctuation for TTS)
+  const listenText = `${headline}. ${whatHappened} ${actionSteps.slice(0, 2).join('. ')}. ${weatherRiskNotice}`;
 
   return {
     crop,
@@ -182,3 +238,4 @@ module.exports = {
   generateAdvisory,
   LOCALIZED_ADVISORIES
 };
+

@@ -1,0 +1,35 @@
+services:
+  # 1. Python ML Inference Service (FastAPI)
+  - type: web
+    name: agriguard-ml
+    env: python
+    region: oregon
+    plan: free
+    rootDir: ml
+    buildCommand: "pip install --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install --no-cache-dir -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    autoDeploy: true
+
+  # 2. Node.js Express Backend Service
+  - type: web
+    name: agriguard-backend
+    env: node
+    region: oregon
+    plan: free
+    rootDir: server
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ML_SERVICE_URL
+        sync: false
+      - key: CLIENT_URL
+        sync: false

@@ -7,15 +7,20 @@ const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'http://127.0.0.1:8000';
 /**
  * Sends image to Python FastAPI service for disease prediction.
  * @param {string} imagePath Local path to saved image
+ * @param {string} [cropHint] Optional user-selected crop hint
  * @returns {Promise<Object>} Prediction result
  */
-async function predictImage(imagePath) {
+async function predictImage(imagePath, cropHint = '') {
   if (!fs.existsSync(imagePath)) {
     throw new Error('Image file not found on server.');
   }
 
   const form = new FormData();
   form.append('image', fs.createReadStream(imagePath));
+  if (cropHint && typeof cropHint === 'string' && cropHint.trim()) {
+    form.append('crop', cropHint.trim());
+  }
+
 
   try {
     const response = await axios.post(`${ML_SERVICE_URL}/predict`, form, {

@@ -18,6 +18,8 @@ env/
 # Uploads
 uploads/scans/*
 !uploads/scans/.gitkeep
+server/uploads/scans/*
+!server/uploads/scans/.gitkeep
 
 # Local database files
 data/
