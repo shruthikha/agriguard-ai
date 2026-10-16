@@ -49,13 +49,18 @@ const processDiseasePrediction = async (req, res) => {
       confidenceLevel = 'Medium';
     }
 
-    // 2. Fetch Disease Information from MongoDB
-    let diseaseDoc = await Disease.findOne({ classId });
-    if (!diseaseDoc) {
-      diseaseDoc = await Disease.findOne({
-        crop: new RegExp(`^${detectedCrop}$`, 'i'),
-        diseaseName: new RegExp(`^${detectedDisease}$`, 'i')
-      });
+    // 2. Fetch Disease Information from MongoDB (with graceful fallback)
+    let diseaseDoc = null;
+    try {
+      diseaseDoc = await Disease.findOne({ classId }).maxTimeMS(2500);
+      if (!diseaseDoc) {
+        diseaseDoc = await Disease.findOne({
+          crop: new RegExp(`^${detectedCrop}$`, 'i'),
+          diseaseName: new RegExp(`^${detectedDisease}$`, 'i')
+        }).maxTimeMS(2500);
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB query warning (proceeding with fallback data):', dbErr.message);
     }
 
     // 3. Fetch Weather Context
@@ -130,27 +135,33 @@ const processDiseasePrediction = async (req, res) => {
       notes: req.body.notes || ''
     };
 
-    const savedScan = await Scan.create(scanData);
+    let savedScan = null;
+    try {
+      savedScan = await Scan.create(scanData);
 
-    // Also persist stand-alone Advisory record
-    if (req.user) {
-      await Advisory.create({
-        userId: req.user._id,
-        crop: detectedCrop,
-        disease: detectedDisease,
-        weatherData: {
-          temperature: weatherData.temperature,
-          humidity: weatherData.humidity,
-          rainfall: weatherData.rainfall,
-          windSpeed: weatherData.windSpeed,
-          condition: weatherData.weatherCondition,
-          location: weatherData.location
-        },
-        recommendation: advisory.headline,
-        actionSteps: advisory.actionSteps,
-        priority: advisory.priority,
-        language
-      });
+      // Also persist stand-alone Advisory record
+      if (req.user) {
+        await Advisory.create({
+          userId: req.user._id,
+          crop: detectedCrop,
+          disease: detectedDisease,
+          weatherData: {
+            temperature: weatherData.temperature,
+            humidity: weatherData.humidity,
+            rainfall: weatherData.rainfall,
+            windSpeed: weatherData.windSpeed,
+            condition: weatherData.weatherCondition,
+            location: weatherData.location
+          },
+          recommendation: advisory.headline,
+          actionSteps: advisory.actionSteps,
+          priority: advisory.priority,
+          language
+        });
+      }
+    } catch (saveErr) {
+      console.warn('Scan persistence warning (proceeding without db save):', saveErr.message);
+      savedScan = { _id: 'temp-' + Date.now(), ...scanData };
     }
 
     res.status(200).json({
