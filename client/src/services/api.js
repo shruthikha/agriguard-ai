@@ -1,9 +1,13 @@
 import axios from 'axios';
 
-let rawBaseURL = import.meta.env.VITE_API_URL || '/api';
-let cleanBaseURL = rawBaseURL.trim();
+let rawBaseURL = (import.meta.env.VITE_API_URL || '/api').trim();
+let cleanBaseURL = rawBaseURL.replace(/\/+$/, '');
+
+// Auto-correct /ap to /api, or append /api if missing from domain
 if (cleanBaseURL.endsWith('/ap')) {
   cleanBaseURL = cleanBaseURL.replace(/\/ap$/, '/api');
+} else if (!cleanBaseURL.endsWith('/api')) {
+  cleanBaseURL = `${cleanBaseURL}/api`;
 }
 
 const api = axios.create({

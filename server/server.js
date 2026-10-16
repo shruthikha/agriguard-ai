@@ -104,8 +104,8 @@ const { processDiseasePrediction } = require('./controllers/scanController');
 const { optionalAuth } = require('./middleware/authMiddleware');
 const upload = require('./middleware/uploadMiddleware');
 
-// Mount Routes on both /api and /ap (tolerates accidental /ap typo in environment variables)
-['/api', '/ap'].forEach(prefix => {
+// Mount Routes on /api, /ap, and root (tolerates missing /api or /ap in environment variables)
+['/api', '/ap', ''].forEach(prefix => {
   app.use(`${prefix}/auth`, authRoutes);
   app.use(`${prefix}/diseases`, diseaseRoutes);
   app.use(`${prefix}/scans`, scanRoutes);
