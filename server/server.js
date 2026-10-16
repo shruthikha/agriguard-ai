@@ -76,7 +76,7 @@ app.get('/', (req, res) => {
 
 app.get('/health', (req, res) => res.redirect('/api/health'));
 
-app.get('/api/health', async (req, res) => {
+app.get(['/api/health', '/ap/health'], async (req, res) => {
   const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
   const mlStatus = await checkMLHealth();
 
@@ -104,16 +104,16 @@ const { processDiseasePrediction } = require('./controllers/scanController');
 const { optionalAuth } = require('./middleware/authMiddleware');
 const upload = require('./middleware/uploadMiddleware');
 
-// Mount Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/diseases', diseaseRoutes);
-app.use('/api/scans', scanRoutes);
-app.use('/api/weather', weatherRoutes);
-app.use('/api/advisories', advisoryRoutes);
-app.use('/api/admin', adminRoutes);
-
-// Direct POST /api/predict route matching specification
-app.post('/api/predict', predictLimiter, optionalAuth, upload.single('image'), processDiseasePrediction);
+// Mount Routes on both /api and /ap (tolerates accidental /ap typo in environment variables)
+['/api', '/ap'].forEach(prefix => {
+  app.use(`${prefix}/auth`, authRoutes);
+  app.use(`${prefix}/diseases`, diseaseRoutes);
+  app.use(`${prefix}/scans`, scanRoutes);
+  app.use(`${prefix}/weather`, weatherRoutes);
+  app.use(`${prefix}/advisories`, advisoryRoutes);
+  app.use(`${prefix}/admin`, adminRoutes);
+  app.post(`${prefix}/predict`, predictLimiter, optionalAuth, upload.single('image'), processDiseasePrediction);
+});
 
 // 404 Route Handler
 app.use((req, res) => {

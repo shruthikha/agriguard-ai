@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+let rawBaseURL = import.meta.env.VITE_API_URL || '/api';
+let cleanBaseURL = rawBaseURL.trim();
+if (cleanBaseURL.endsWith('/ap')) {
+  cleanBaseURL = cleanBaseURL.replace(/\/ap$/, '/api');
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: cleanBaseURL,
   timeout: 90000  // 90s to handle ML inference latency
 });
 
